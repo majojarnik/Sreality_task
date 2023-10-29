@@ -12,7 +12,7 @@ class FlatsSpider(scrapy.Spider):
         for flat in dict_response.get('_embedded').get('estates'):
             item = SrealityItem()
             item['title'] = flat['name']
-            item['image_url'] = flat['_links']['image_middle2'][0]
+            item['image_url'] = flat['_links']['image_middle2'][0]['href']
 
             yield item
 
