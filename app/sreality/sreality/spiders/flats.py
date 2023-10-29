@@ -1,5 +1,6 @@
 import scrapy
 import json
+from sreality.sreality.items import SrealityItem
 
 
 class FlatsSpider(scrapy.Spider):
@@ -9,8 +10,10 @@ class FlatsSpider(scrapy.Spider):
     def parse(self, response, **kwargs):
         dict_response = json.loads(response.text)
         for flat in dict_response.get('_embedded').get('estates'):
-            yield {
-                'title': flat['name'],
-                'image_url': flat['_links']['image_middle2'][0]
-            }
+            item = SrealityItem()
+            item['title'] = flat['name']
+            item['image_url'] = flat['_links']['image_middle2'][0]
+
+            yield item
+
 
