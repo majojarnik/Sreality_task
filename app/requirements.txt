@@ -1,0 +1,6 @@
+Django~=4.2.6
+Scrapy~=2.11.0
+itemadapter~=0.8.0
+asgiref~=3.7.2
+psycopg2-binary==2.9.6
+scrapy-djangoitem==1.1.1
